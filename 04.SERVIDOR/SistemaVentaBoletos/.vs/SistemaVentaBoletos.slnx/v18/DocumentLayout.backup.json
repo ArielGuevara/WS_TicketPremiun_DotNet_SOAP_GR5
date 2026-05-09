@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.wcf\\federacionservice.svc||{FB9167C9-D3B8-4EDA-8083-9AF6B6F6DA62}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\federacionservice.svc||{FB9167C9-D3B8-4EDA-8083-9AF6B6F6DA62}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.wcf\\federacionservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\federacionservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.wcf\\ifederacionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\ifederacionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.wcf\\modelos\\localidaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\modelos\\localidaddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.wcf\\modelos\\partidodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\modelos\\partidodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87E89CE-8182-4430-B090-184A4B6F77BD}|Federacion.Datos\\Federacion.Datos.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.datos\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D87E89CE-8182-4430-B090-184A4B6F77BD}|Federacion.Datos\\Federacion.Datos.csproj|solutionrelative:federacion.datos\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D87E89CE-8182-4430-B090-184A4B6F77BD}|Federacion.Datos\\Federacion.Datos.csproj|c:\\users\\ariel\\pry\\ws_ticketpremium_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\federacion.datos\\federacionmodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{D87E89CE-8182-4430-B090-184A4B6F77BD}|Federacion.Datos\\Federacion.Datos.csproj|solutionrelative:federacion.datos\\federacionmodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FederacionService.svc",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\FederacionService.svc",
+              "RelativeDocumentMoniker": "Federacion.WCF\\FederacionService.svc",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\FederacionService.svc",
+              "RelativeToolTip": "Federacion.WCF\\FederacionService.svc",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003504|",
+              "WhenOpened": "2026-05-09T04:15:19.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FederacionService.svc.cs",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\FederacionService.svc.cs",
+              "RelativeDocumentMoniker": "Federacion.WCF\\FederacionService.svc.cs",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\FederacionService.svc.cs",
+              "RelativeToolTip": "Federacion.WCF\\FederacionService.svc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T04:01:52.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IFederacionService.cs",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\IFederacionService.cs",
+              "RelativeDocumentMoniker": "Federacion.WCF\\IFederacionService.cs",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\IFederacionService.cs",
+              "RelativeToolTip": "Federacion.WCF\\IFederacionService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwAgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T03:48:01.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LocalidadDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Modelos\\LocalidadDTO.cs",
+              "RelativeDocumentMoniker": "Federacion.WCF\\Modelos\\LocalidadDTO.cs",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Modelos\\LocalidadDTO.cs",
+              "RelativeToolTip": "Federacion.WCF\\Modelos\\LocalidadDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T03:46:12.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PartidoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Modelos\\PartidoDTO.cs",
+              "RelativeDocumentMoniker": "Federacion.WCF\\Modelos\\PartidoDTO.cs",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Modelos\\PartidoDTO.cs",
+              "RelativeToolTip": "Federacion.WCF\\Modelos\\PartidoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-09T03:33:13.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Web.config",
+              "RelativeDocumentMoniker": "Federacion.WCF\\Web.config",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Web.config",
+              "RelativeToolTip": "Federacion.WCF\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-09T02:59:32.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.Datos\\App.config",
+              "RelativeDocumentMoniker": "Federacion.Datos\\App.config",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.Datos\\App.config",
+              "RelativeToolTip": "Federacion.Datos\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-09T02:58:36.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FederacionModel.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.Datos\\FederacionModel.edmx",
+              "RelativeDocumentMoniker": "Federacion.Datos\\FederacionModel.edmx",
+              "ToolTip": "C:\\Users\\ariel\\PRY\\WS_TicketPremium_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.Datos\\FederacionModel.edmx [Diagram1]",
+              "RelativeToolTip": "Federacion.Datos\\FederacionModel.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2026-05-09T02:45:59.334Z",
+              "EditorCaption": " [Diagram1]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

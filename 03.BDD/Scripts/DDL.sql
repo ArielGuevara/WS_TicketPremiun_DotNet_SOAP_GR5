@@ -40,3 +40,55 @@ CREATE TABLE LOCALIDAD_PARTIDO (
         REFERENCES PARTIDO_FUTBOL(CODIGO) ON DELETE CASCADE
 );
 GO
+
+--**********************************************************************************************************************
+
+-- ======================================================================
+-- SCRIPT DDL: SISTEMA TICKET PREMIUM
+-- ======================================================================
+
+USE master;
+go
+
+IF( EXISTS ( SELECT name FROM master.sys.databases WHERE name = 'TicketPremiumDB' ) )
+BEGIN
+	DROP DATABASE TicketPremiumDB;
+END;
+go
+
+CREATE DATABASE TicketPremiumDB;
+GO
+
+-- =============================================
+-- Seleccionar la Base de Datos
+-- =============================================
+
+USE TicketPremiumDB;
+GO
+
+-- Tabla: FACTURA
+CREATE TABLE FACTURA (
+    ID_FACTURA INT IDENTITY(1,1) PRIMARY KEY,
+    FECHA_EMISION DATETIME NOT NULL DEFAULT GETDATE(),
+    SUBTOTAL DECIMAL(10,2) NOT NULL,
+    IVA DECIMAL(10,2) NOT NULL, -- Valor calculado del impuesto
+    TOTAL_FINAL DECIMAL(10,2) NOT NULL
+);
+GO
+
+-- Tabla: DETALLE_FACTURA
+CREATE TABLE DETALLE_FACTURA (
+    ID_DETALLE INT IDENTITY(1,1) PRIMARY KEY,
+    ID_FACTURA INT NOT NULL,
+    
+    -- Estos datos provienen del Web Service de la Federación
+    CODIGO_PARTIDO INT NOT NULL, 
+    CODIGO_LOCALIDAD VARCHAR(50) NOT NULL, 
+    
+    BOLETOS_VENDIDOS INT NOT NULL,
+    TOTAL_RECAUDADO DECIMAL(10,2) NOT NULL, -- Boletos * Precio Unitario
+    
+    CONSTRAINT FK_Detalle_Factura FOREIGN KEY (ID_FACTURA) 
+        REFERENCES FACTURA(ID_FACTURA) ON DELETE CASCADE
+);
+GO

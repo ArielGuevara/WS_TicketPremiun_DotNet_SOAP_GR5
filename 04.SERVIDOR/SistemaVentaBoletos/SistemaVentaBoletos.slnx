@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Federacion.Datos/Federacion.Datos.csproj" />
+  <Project Path="Federacion.WCF/Federacion.WCF.csproj" />
+</Solution>

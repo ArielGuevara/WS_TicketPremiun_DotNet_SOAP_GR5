@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Monster.Edu.Ec.Federacion.WCF.FederacionService" CodeBehind="FederacionService.svc.cs" %>

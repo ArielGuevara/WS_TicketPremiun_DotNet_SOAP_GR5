@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MonsterEduEcFederacionDatosStoreContainer" CdmEntityContainer="FederacionFutbolDBEntities">
+    <EntitySetMapping Name="LOCALIDAD_PARTIDO">
+      <EntityTypeMapping TypeName="Monster.Edu.Ec.Federacion.Datos.LOCALIDAD_PARTIDO">
+        <MappingFragment StoreEntitySet="LOCALIDAD_PARTIDO">
+          <ScalarProperty Name="CODIGO_PARTIDO" ColumnName="CODIGO_PARTIDO" />
+          <ScalarProperty Name="CODIGO_LOCALIDAD" ColumnName="CODIGO_LOCALIDAD" />
+          <ScalarProperty Name="DISPONIBILIDAD" ColumnName="DISPONIBILIDAD" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARTIDO_FUTBOL">
+      <EntityTypeMapping TypeName="Monster.Edu.Ec.Federacion.Datos.PARTIDO_FUTBOL">
+        <MappingFragment StoreEntitySet="PARTIDO_FUTBOL">
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="EQUIPO_LOCAL" ColumnName="EQUIPO_LOCAL" />
+          <ScalarProperty Name="EQUIPO_VISITA" ColumnName="EQUIPO_VISITA" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
