@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="Federacion.Datos/Federacion.Datos.csproj" />
-  <Project Path="Federacion.WCF/Federacion.WCF.csproj" />
+  <Project Path="Federacion.Datos/Federacion.Datos.csproj" Id="d87e89ce-8182-4430-b090-184a4b6f77bd" />
+  <Project Path="Federacion.WCF/Federacion.WCF.csproj" Id="332d5efb-533f-4b8c-b3a5-8bbff2af4c0c" />
 </Solution>
