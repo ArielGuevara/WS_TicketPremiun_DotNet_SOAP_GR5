@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TicketPremiumDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DETALLE_FACTURA">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_FACTURA" Type="int" Nullable="false" />
+          <Property Name="CODIGO_PARTIDO" Type="int" Nullable="false" />
+          <Property Name="CODIGO_LOCALIDAD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BOLETOS_VENDIDOS" Type="int" Nullable="false" />
+          <Property Name="TOTAL_RECAUDADO" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="ID_FACTURA" />
+          </Key>
+          <Property Name="ID_FACTURA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="FECHA_EMISION" Type="datetime" Nullable="false" />
+          <Property Name="SUBTOTAL" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IVA" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TOTAL_FINAL" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRES" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CORREO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PASSWORD_HASH" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ESTADO" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Detalle_Factura">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="ID_FACTURA" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA">
+              <PropertyRef Name="ID_FACTURA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_Usuario">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TicketPremiumDBModelStoreContainer">
+          <EntitySet Name="DETALLE_FACTURA" EntityType="Self.DETALLE_FACTURA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Detalle_Factura" Association="Self.FK_Detalle_Factura">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_Usuario" Association="Self.FK_Factura_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TicketPremiumDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DETALLE_FACTURA">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_FACTURA" Type="Int32" Nullable="false" />
+          <Property Name="CODIGO_PARTIDO" Type="Int32" Nullable="false" />
+          <Property Name="CODIGO_LOCALIDAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BOLETOS_VENDIDOS" Type="Int32" Nullable="false" />
+          <Property Name="TOTAL_RECAUDADO" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="FACTURA" Relationship="Self.FK_Detalle_Factura" FromRole="DETALLE_FACTURA" ToRole="FACTURA" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="ID_FACTURA" />
+          </Key>
+          <Property Name="ID_FACTURA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="FECHA_EMISION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SUBTOTAL" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IVA" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TOTAL_FINAL" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="DETALLE_FACTURA" Relationship="Self.FK_Detalle_Factura" FromRole="FACTURA" ToRole="DETALLE_FACTURA" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_Factura_Usuario" FromRole="FACTURA" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD_HASH" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ESTADO" Type="Boolean" />
+          <NavigationProperty Name="FACTURA" Relationship="Self.FK_Factura_Usuario" FromRole="USUARIO" ToRole="FACTURA" />
+        </EntityType>
+        <Association Name="FK_Detalle_Factura">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DETALLE_FACTURA" Type="Self.DETALLE_FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="ID_FACTURA" />
+            </Principal>
+            <Dependent Role="DETALLE_FACTURA">
+              <PropertyRef Name="ID_FACTURA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factura_Usuario">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="FACTURA">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TicketPremiumDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DETALLE_FACTURA" EntityType="Self.DETALLE_FACTURA" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK_Detalle_Factura" Association="Self.FK_Detalle_Factura">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="DETALLE_FACTURA" EntitySet="DETALLE_FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factura_Usuario" Association="Self.FK_Factura_Usuario">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TicketPremiumDBModelStoreContainer" CdmEntityContainer="TicketPremiumDBEntities">
+          <EntitySetMapping Name="DETALLE_FACTURA">
+            <EntityTypeMapping TypeName="TicketPremiumDBModel.DETALLE_FACTURA">
+              <MappingFragment StoreEntitySet="DETALLE_FACTURA">
+                <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
+                <ScalarProperty Name="ID_FACTURA" ColumnName="ID_FACTURA" />
+                <ScalarProperty Name="CODIGO_PARTIDO" ColumnName="CODIGO_PARTIDO" />
+                <ScalarProperty Name="CODIGO_LOCALIDAD" ColumnName="CODIGO_LOCALIDAD" />
+                <ScalarProperty Name="BOLETOS_VENDIDOS" ColumnName="BOLETOS_VENDIDOS" />
+                <ScalarProperty Name="TOTAL_RECAUDADO" ColumnName="TOTAL_RECAUDADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURA">
+            <EntityTypeMapping TypeName="TicketPremiumDBModel.FACTURA">
+              <MappingFragment StoreEntitySet="FACTURA">
+                <ScalarProperty Name="ID_FACTURA" ColumnName="ID_FACTURA" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="FECHA_EMISION" ColumnName="FECHA_EMISION" />
+                <ScalarProperty Name="SUBTOTAL" ColumnName="SUBTOTAL" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="TOTAL_FINAL" ColumnName="TOTAL_FINAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="TicketPremiumDBModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="PASSWORD_HASH" ColumnName="PASSWORD_HASH" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

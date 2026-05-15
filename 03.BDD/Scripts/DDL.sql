@@ -42,19 +42,19 @@ CREATE TABLE LOCALIDAD_PARTIDO (
 GO
 
 --**********************************************************************************************************************
-
 -- ======================================================================
 -- SCRIPT DDL: SISTEMA TICKET PREMIUM
 -- ======================================================================
-
 USE master;
-go
+GO
 
 IF( EXISTS ( SELECT name FROM master.sys.databases WHERE name = 'TicketPremiumDB' ) )
 BEGIN
-	DROP DATABASE TicketPremiumDB;
+    -- Forzar el cierre de conexiones activas antes de eliminar
+    ALTER DATABASE TicketPremiumDB SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE TicketPremiumDB;
 END;
-go
+GO
 
 CREATE DATABASE TicketPremiumDB;
 GO
@@ -62,17 +62,30 @@ GO
 -- =============================================
 -- Seleccionar la Base de Datos
 -- =============================================
-
 USE TicketPremiumDB;
+GO
+
+-- Tabla: USUARIO
+CREATE TABLE USUARIO (
+    ID_USUARIO INT IDENTITY(1,1) PRIMARY KEY,
+    NOMBRES VARCHAR(100) NOT NULL,
+    CORREO VARCHAR(100) NOT NULL UNIQUE,
+    PASSWORD_HASH VARCHAR(255) NOT NULL, -- Almacenará el hash encriptado con BCrypt
+    ESTADO BIT DEFAULT 1 -- 1: Activo, 0: Inactivo
+);
 GO
 
 -- Tabla: FACTURA
 CREATE TABLE FACTURA (
     ID_FACTURA INT IDENTITY(1,1) PRIMARY KEY,
+    ID_USUARIO INT NOT NULL, -- Vinculación con el usuario comprador
     FECHA_EMISION DATETIME NOT NULL DEFAULT GETDATE(),
     SUBTOTAL DECIMAL(10,2) NOT NULL,
     IVA DECIMAL(10,2) NOT NULL, -- Valor calculado del impuesto
-    TOTAL_FINAL DECIMAL(10,2) NOT NULL
+    TOTAL_FINAL DECIMAL(10,2) NOT NULL,
+    
+    CONSTRAINT FK_Factura_Usuario FOREIGN KEY (ID_USUARIO) 
+        REFERENCES USUARIO(ID_USUARIO)
 );
 GO
 
@@ -80,8 +93,7 @@ GO
 CREATE TABLE DETALLE_FACTURA (
     ID_DETALLE INT IDENTITY(1,1) PRIMARY KEY,
     ID_FACTURA INT NOT NULL,
-    
-    -- Estos datos provienen del Web Service de la Federación
+
     CODIGO_PARTIDO INT NOT NULL, 
     CODIGO_LOCALIDAD VARCHAR(50) NOT NULL, 
     
@@ -92,3 +104,4 @@ CREATE TABLE DETALLE_FACTURA (
         REFERENCES FACTURA(ID_FACTURA) ON DELETE CASCADE
 );
 GO
+
