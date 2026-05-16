@@ -2,5 +2,7 @@
   <Project Path="Federacion.Datos/Federacion.Datos.csproj" Id="d87e89ce-8182-4430-b090-184a4b6f77bd" />
   <Project Path="Federacion.WCF/Federacion.WCF.csproj" Id="332d5efb-533f-4b8c-b3a5-8bbff2af4c0c" />
   <Project Path="TicketPremium.Datos/TicketPremium.Datos.csproj" Id="d83b7efc-e810-47e5-8da7-4a8de4e9404d" />
-  <Project Path="TicketPremium.WCF/TicketPremium.WCF.csproj" Id="10d7f407-9b81-4156-aaee-19824d526bcb" />
+  <Project Path="TicketPremium.WCF/TicketPremium.WCF.csproj" Id="10d7f407-9b81-4156-aaee-19824d526bcb">
+    <BuildDependency Project="Federacion.WCF/Federacion.WCF.csproj" />
+  </Project>
 </Solution>

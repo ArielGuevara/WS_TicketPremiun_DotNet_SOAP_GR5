@@ -3,11 +3,13 @@ using Monster.Edu.Ec.TicketPremium.WCF.Modelos;
 using System;
 using System.Linq;
 using TicketPremium.Datos;
+using TicketPremium.WCF.FederacionWS;
 
 namespace Monster.Edu.Ec.TicketPremium.WCF
 {
     public class TicketPremiumService : ITicketPremiumService
     {
+        
         public UsuarioDTO IniciarSesion(string correo, string password)
         {
             using (var context = new TicketPremiumDBEntities())
@@ -77,6 +79,80 @@ namespace Monster.Edu.Ec.TicketPremium.WCF
                 context.SaveChanges();
 
                 return true; // Registro exitoso
+            }
+        }
+
+        public FacturaDTO ComprarBoletos(int idUsuario, int codigoPartido, string codigoLocalidad, int cantidadBoletos, decimal precioUnitario)
+        {
+            // 1. Nos comunicamos con el Web Service de la Federación
+            // Usamos el namespace que le dimos a la referencia de servicio en el Paso 1
+            FederacionServiceClient federacionClient = new FederacionServiceClient();
+
+            try
+            {
+                // Invocamos el método del otro sistema para restar la disponibilidad
+                bool boletosDescontados = federacionClient.DisminuirDisponibilidad(codigoPartido, codigoLocalidad, cantidadBoletos);
+
+                if (!boletosDescontados)
+                {
+                    return new FacturaDTO { Mensaje = "Error: No hay suficientes boletos disponibles o la localidad no existe." };
+                }
+
+                // 2. Si la Federación confirmó el descuento, procedemos a facturar
+                decimal subtotal = cantidadBoletos * precioUnitario;
+                decimal iva = subtotal * 0.15m; // 15% de IVA
+                decimal totalFinal = subtotal + iva;
+
+                using (var context = new TicketPremiumDBEntities())
+                {
+                    // 3. Crear la cabecera de la factura
+                    var nuevaFactura = new FACTURA
+                    {
+                        ID_USUARIO = idUsuario,
+                        FECHA_EMISION = DateTime.Now,
+                        SUBTOTAL = subtotal,
+                        IVA = iva,
+                        TOTAL_FINAL = totalFinal
+                    };
+
+                    // 4. Crear el detalle
+                    var nuevoDetalle = new DETALLE_FACTURA
+                    {
+                        CODIGO_PARTIDO = codigoPartido,
+                        CODIGO_LOCALIDAD = codigoLocalidad,
+                        BOLETOS_VENDIDOS = cantidadBoletos,
+                        TOTAL_RECAUDADO = subtotal // Subtotal sin IVA por los boletos
+                    };
+
+                    // Entity Framework permite agregar el detalle directamente a la cabecera
+                    nuevaFactura.DETALLE_FACTURA.Add(nuevoDetalle);
+
+                    // 5. Guardar en SQL Server
+                    context.FACTURA.Add(nuevaFactura);
+                    context.SaveChanges();
+
+                    return new FacturaDTO
+                    {
+                        IdFactura = nuevaFactura.ID_FACTURA,
+                        FechaEmision = nuevaFactura.FECHA_EMISION,
+                        Subtotal = nuevaFactura.SUBTOTAL,
+                        Iva = nuevaFactura.IVA,
+                        TotalFinal = nuevaFactura.TOTAL_FINAL,
+                        Mensaje = "Compra exitosa y factura generada."
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new FacturaDTO { Mensaje = "Error interno al procesar la compra: " + ex.Message };
+            }
+            finally
+            {
+                // Es buena práctica cerrar el cliente WCF
+                if (federacionClient.State == System.ServiceModel.CommunicationState.Opened)
+                {
+                    federacionClient.Close();
+                }
             }
         }
     }

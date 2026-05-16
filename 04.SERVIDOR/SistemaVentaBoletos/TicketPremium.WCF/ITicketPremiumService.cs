@@ -14,5 +14,8 @@ namespace Monster.Edu.Ec.TicketPremium.WCF
 
         [OperationContract]
         bool RegistrarUsuario(string nombres, string correo, string password);
+
+        [OperationContract]
+        FacturaDTO ComprarBoletos(int idUsuario, int codigoPartido, string codigoLocalidad, int cantidadBoletos, decimal precioUnitario);
     }
 }

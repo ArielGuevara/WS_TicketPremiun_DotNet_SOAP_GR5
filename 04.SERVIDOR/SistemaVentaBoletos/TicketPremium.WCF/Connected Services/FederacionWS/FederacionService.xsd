@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60235/FederacionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Monster.Edu.Ec.Federacion.WCF.Models" />
+  <xs:element name="ObtenerPartidosDisponibles">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPartidosDisponiblesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Monster.Edu.Ec.Federacion.WCF.Models" minOccurs="0" name="ObtenerPartidosDisponiblesResult" nillable="true" type="q1:ArrayOfPartidoDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerLocalidadesDisponibles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartido" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerLocalidadesDisponiblesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Monster.Edu.Ec.Federacion.WCF.Models" minOccurs="0" name="ObtenerLocalidadesDisponiblesResult" nillable="true" type="q2:ArrayOfLocalidadDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisminuirDisponibilidad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartido" type="xs:int" />
+        <xs:element minOccurs="0" name="codigoLocalidad" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="boletosComprados" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisminuirDisponibilidadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DisminuirDisponibilidadResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

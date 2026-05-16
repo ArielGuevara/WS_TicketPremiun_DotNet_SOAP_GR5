@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="FederacionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:60235/FederacionService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:60235/FederacionService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:60235/FederacionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Monster.Edu.Ec.Federacion.WCF.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFederacionService_ObtenerPartidosDisponibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPartidosDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="IFederacionService_ObtenerPartidosDisponibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPartidosDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFederacionService_ObtenerLocalidadesDisponibles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerLocalidadesDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="IFederacionService_ObtenerLocalidadesDisponibles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerLocalidadesDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFederacionService_DisminuirDisponibilidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisminuirDisponibilidad" />
+  </wsdl:message>
+  <wsdl:message name="IFederacionService_DisminuirDisponibilidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisminuirDisponibilidadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFederacionService">
+    <wsdl:operation name="ObtenerPartidosDisponibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFederacionService/ObtenerPartidosDisponibles" message="tns:IFederacionService_ObtenerPartidosDisponibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFederacionService/ObtenerPartidosDisponiblesResponse" message="tns:IFederacionService_ObtenerPartidosDisponibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLocalidadesDisponibles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFederacionService/ObtenerLocalidadesDisponibles" message="tns:IFederacionService_ObtenerLocalidadesDisponibles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFederacionService/ObtenerLocalidadesDisponiblesResponse" message="tns:IFederacionService_ObtenerLocalidadesDisponibles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisminuirDisponibilidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFederacionService/DisminuirDisponibilidad" message="tns:IFederacionService_DisminuirDisponibilidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFederacionService/DisminuirDisponibilidadResponse" message="tns:IFederacionService_DisminuirDisponibilidad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFederacionService" type="tns:IFederacionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerPartidosDisponibles">
+      <soap:operation soapAction="http://tempuri.org/IFederacionService/ObtenerPartidosDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerLocalidadesDisponibles">
+      <soap:operation soapAction="http://tempuri.org/IFederacionService/ObtenerLocalidadesDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisminuirDisponibilidad">
+      <soap:operation soapAction="http://tempuri.org/IFederacionService/DisminuirDisponibilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FederacionService">
+    <wsdl:port name="BasicHttpBinding_IFederacionService" binding="tns:BasicHttpBinding_IFederacionService">
+      <soap:address location="http://localhost:60235/FederacionService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
