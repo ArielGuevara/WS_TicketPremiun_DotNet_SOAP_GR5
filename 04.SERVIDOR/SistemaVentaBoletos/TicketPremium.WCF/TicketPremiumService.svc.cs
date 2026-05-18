@@ -1,6 +1,7 @@
 ﻿//using Monster.Edu.Ec.TicketPremium.Datos; // Referencia a tu capa de datos EF
 using Monster.Edu.Ec.TicketPremium.WCF.Modelos;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TicketPremium.Datos;
 using TicketPremium.WCF.FederacionWS;
@@ -154,6 +155,63 @@ namespace Monster.Edu.Ec.TicketPremium.WCF
                     federacionClient.Close();
                 }
             }
+        }
+
+        public ReporteResumenVentasDTO ObtenerResumenVentas(int codigoPartido)
+        {
+            var reporte = new ReporteResumenVentasDTO();
+            reporte.Detalles = new List<DetalleReporteDTO>();
+
+            // 1. Obtener los datos del partido desde el sistema de la Federación
+            var federacionClient = new FederacionServiceClient();
+            try
+            {
+                // Obtenemos todos y filtramos en memoria por el código
+                var partidos = federacionClient.ObtenerPartidosDisponibles();
+                var partido = partidos.FirstOrDefault(p => p.Codigo == codigoPartido);
+
+                if (partido != null)
+                {
+                    reporte.Partido = $"{partido.EquipoLocal} vs {partido.EquipoVisita}";
+                    reporte.Fecha = partido.Fecha.ToString("dd-MMMM-yyyy");
+                }
+                else
+                {
+                    reporte.Partido = "Partido no encontrado";
+                    reporte.Fecha = "N/A";
+                }
+            }
+            catch
+            {
+                reporte.Partido = "Error de comunicación con la Federación";
+                reporte.Fecha = "N/A";
+            }
+            finally
+            {
+                if (federacionClient.State == System.ServiceModel.CommunicationState.Opened)
+                {
+                    federacionClient.Close();
+                }
+            }
+
+            // 2. Obtener el resumen de ventas agrupado desde nuestra base de datos TicketPremium
+            using (var context = new TicketPremiumDBEntities())
+            {
+                var ventasAgrupadas = context.DETALLE_FACTURA
+                    .Where(d => d.CODIGO_PARTIDO == codigoPartido)
+                    .GroupBy(d => d.CODIGO_LOCALIDAD) // Agrupamos por nombre de localidad
+                    .Select(g => new DetalleReporteDTO
+                    {
+                        Localidad = g.Key,
+                        Vendidos = g.Sum(d => d.BOLETOS_VENDIDOS), // Sumamos cantidades
+                        TotalRecaudado = g.Sum(d => d.TOTAL_RECAUDADO) // Sumamos dinero
+                    })
+                    .ToList();
+
+                reporte.Detalles = ventasAgrupadas;
+            }
+
+            return reporte;
         }
     }
 }
