@@ -1,0 +1,116 @@
+@page "/reporte"
+@inject ServicioFederacion ServicioFederacion
+@inject ServicioTicketPremium ServicioTicketPremium
+@inject NavigationManager Nav
+
+<div class="text-center mb-3">
+    <div class="icon-box mx-auto mb-3" style="background:#E8EAF6;width:60px;height:60px;border-radius:30px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">
+        📊
+    </div>
+    <h4 style="font-weight:700;">Reporte de Ventas</h4>
+    <p class="text-secondary" style="font-size:0.85rem;">Selecciona un partido para ver el resumen</p>
+</div>
+
+@if (cargando)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+}
+
+<div class="stagger-list">
+@foreach (var p in partidos)
+{
+    <div class="match-card" @onclick="() => CargarReporte(p.Codigo)">
+        <div class="match-icon" style="background:#E8EAF6;">
+            <span>⚽</span>
+        </div>
+        <div class="match-info">
+            <h4>@p.EquipoLocal vs @p.EquipoVisita</h4>
+            <small>@p.Fecha.ToString("dd/MM/yyyy HH:mm")</small>
+        </div>
+        <span class="arrow">›</span>
+    </div>
+}
+</div>
+
+@* OVERLAY REPORTE *@
+@if (reporte is not null)
+{
+    <div class="overlay" @onclick:stopPropagation>
+        <div class="overlay-content">
+            <div class="text-center mb-3">
+                <img src="/images/sulli_analitico.jpeg" style="width:160px;height:160px;border-radius:80px;object-fit:cover;display:block;margin:0 auto 12px;" />
+                <h2>REPORTE DE VENTAS</h2>
+            </div>
+
+            <hr class="border-primary border-2 opacity-100" />
+
+            <div class="text-center mb-3">
+                <h5 class="fw-bold">@reporte.Partido</h5>
+                <small class="text-secondary">📅 @reporte.Fecha</small>
+            </div>
+
+            <div class="receipt">
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Localidad</th>
+                            <th>Vend.</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var d in reporte.Detalles)
+                        {
+                            <tr>
+                                <td>@d.Localidad</td>
+                                <td class="text-end">@d.Vendidos</td>
+                                <td class="text-end fw-bold">$@d.TotalRecaudado.ToString("F2")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <hr />
+                <p class="text-end fw-bold" style="font-size:1.1rem;color:var(--primary-dark);">
+                    TOTAL GENERAL: $@reporte.Detalles.Sum(d => d.TotalRecaudado).ToString("F2")
+                </p>
+            </div>
+
+            <button class="btn-primary-custom mt-3" @onclick="() => reporte = null">Cerrar</button>
+        </div>
+    </div>
+}
+
+@code {
+    List<PartidoDTO> partidos = [];
+    ReporteResumenVentasDTO? reporte;
+    bool cargando = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            partidos = await ServicioFederacion.ObtenerPartidosDisponibles();
+        }
+        catch { }
+        finally
+        {
+            cargando = false;
+        }
+    }
+
+    async Task CargarReporte(int codigoPartido)
+    {
+        cargando = true;
+        try
+        {
+            reporte = await ServicioTicketPremium.ObtenerResumenVentas(codigoPartido);
+        }
+        catch { }
+        finally
+        {
+            cargando = false;
+        }
+    }
+}

@@ -1,0 +1,98 @@
+﻿@page "/"
+@inject AppState AppState
+@inject ServicioTicketPremium ServicioTicketPremium
+@inject NavigationManager Nav
+
+<div class="menu-container px-0 anim-fade-up">
+    <div class="stagger-list">
+
+    @if (!AppState.EstaLogeado)
+    {
+        <a href="/login" class="card-menu">
+            <div class="icon-box" style="background:#E3F2FD;">
+                <span style="font-size:1.5rem;">🔑</span>
+            </div>
+            <div class="menu-text">
+                <h3>Iniciar Sesión</h3>
+                <p>Accede con tu correo y contraseña</p>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+
+        <a href="/registro" class="card-menu">
+            <div class="icon-box" style="background:#E3F2FD;">
+                <span style="font-size:1.5rem;">📝</span>
+            </div>
+            <div class="menu-text">
+                <h3>Registrar Usuario</h3>
+                <p>Crea una cuenta nueva en segundos</p>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+    }
+
+    <a href="/partidos" class="card-menu">
+        <div class="icon-box" style="background:#FFF3E0;">
+            <span style="font-size:1.5rem;">⚽</span>
+        </div>
+        <div class="menu-text">
+            <h3>Ver Partidos</h3>
+            <p>Explora partidos y localidades</p>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+
+    <a href="/reporte" class="card-menu">
+        <div class="icon-box" style="background:#E8EAF6;">
+            <span style="font-size:1.5rem;">📊</span>
+        </div>
+        <div class="menu-text">
+            <h3>Reporte de Ventas</h3>
+            <p>Resumen de boletos vendidos por partido</p>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+
+    @if (AppState.EstaLogeado)
+    {
+        <div class="card-menu" @onclick="CerrarSesion">
+            <div class="icon-box" style="background:#E8F5E9;">
+                <span style="font-size:1.5rem;">🚪</span>
+            </div>
+            <div class="menu-text">
+                <h3 style="color:var(--sports-green);">Cerrar Sesión</h3>
+                <p>Finaliza tu sesión actual</p>
+            </div>
+            <span class="arrow">›</span>
+        </div>
+    }
+
+    </div>
+</div>
+
+@if (loading)
+{
+    <div class="overlay">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+}
+
+@code {
+    bool loading;
+
+    async Task CerrarSesion()
+    {
+        try
+        {
+            loading = true;
+            if (AppState.UsuarioActual is not null)
+                await ServicioTicketPremium.CerrarSesion(AppState.UsuarioActual.TokenSession);
+        }
+        catch { }
+        finally
+        {
+            AppState.CerrarSesion();
+            loading = false;
+        }
+    }
+}

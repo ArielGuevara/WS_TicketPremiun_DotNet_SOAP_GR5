@@ -1,0 +1,199 @@
+@page "/localidades"
+@inject ServicioFederacion ServicioFederacion
+@inject ServicioTicketPremium ServicioTicketPremium
+@inject AppState AppState
+@inject NavigationManager Nav
+
+<div class="text-center mb-2">
+    <h5 style="font-weight:700;">@titulo</h5>
+</div>
+
+@if (cargando)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+}
+
+@if (!cargando && localidades.Count == 0)
+{
+    <div class="empty-state">
+        <img src="/images/sulli_triste.jpeg" style="width:160px;height:160px;border-radius:80px;object-fit:cover;" />
+        <h3 class="mt-3">No hay boletos disponibles</h3>
+        <p class="text-secondary">Todas las localidades de este partido están agotadas.</p>
+    </div>
+}
+
+<div class="stagger-list">
+@foreach (var loc in localidades)
+{
+    <div class="localidad-card" @onclick="() => SeleccionarLocalidad(loc)">
+        <div class="loc-icon" style="background:#E3F2FD;">
+            <span>📍</span>
+        </div>
+        <div class="loc-info">
+            <h4>@loc.CodigoLocalidad</h4>
+            <small>Disponibles: <strong>@loc.Disponibilidad</strong></small>
+        </div>
+        <div class="loc-price">
+            <span class="price-badge">$@loc.Precio.ToString("F2")</span>
+        </div>
+    </div>
+}
+</div>
+
+@* Panel de compra *@
+@if (localidadSel is not null)
+{
+    <div class="form-card mt-3">
+        <div class="text-center mb-3">
+            <img src="/images/sulli_solicitud_compra.jpg" style="width:200px;height:200px;border-radius:100px;object-fit:cover;display:block;margin:0 auto 12px;" />
+            <h5 style="font-weight:700;">COMPRAR BOLETOS</h5>
+            <p class="text-secondary mb-0" style="font-size:0.85rem;">
+                📍 @localidadSel.CodigoLocalidad — $@localidadSel.Precio.ToString("F2") c/u
+            </p>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-secondary" style="font-size:0.85rem;">Cantidad de boletos</label>
+            <input type="text" class="form-control" @bind="cantidad" @bind:event="oninput" inputmode="numeric" placeholder="1" />
+        </div>
+
+        <p class="text-center" style="font-size:1.1rem;font-weight:700;color:var(--sports-green);">
+            Total: $@(((ObtenerCantidad() ?? 1) * localidadSel.Precio * 1.15m).ToString("F2")) (IVA incl.)
+        </p>
+
+        <button class="btn-success-custom" @onclick="Comprar" disabled="@comprando">
+            @if (comprando)
+            {
+                <span class="spinner-border spinner-border-sm me-2"></span>
+            }
+            CONFIRMAR COMPRA
+        </button>
+
+        @if (!string.IsNullOrEmpty(mensaje))
+        {
+            <div class="alert alert-danger mt-3 mb-0 py-2" style="font-size:0.85rem;">@mensaje</div>
+        }
+    </div>
+}
+
+@* OVERLAY FACTURA *@
+@if (factura is not null)
+{
+    <div class="overlay" @onclick:stopPropagation>
+        <div class="overlay-content">
+            <div class="text-center mb-3">
+                <img src="/images/sulli_compra_exitosa.jpg" style="width:220px;height:220px;border-radius:110px;object-fit:cover;display:block;margin:0 auto 12px;" />
+                <h2 style="color:var(--sports-green);">COMPRA EXITOSA</h2>
+            </div>
+
+            <div class="receipt">
+                <p class="text-center fw-bold mb-2">🧾 Factura #@factura.IdFactura</p>
+                <hr />
+                <table>
+                    <tr><td>Subtotal</td><td class="text-end fw-bold">$@factura.Subtotal.ToString("F2")</td></tr>
+                    <tr><td>IVA (15%)</td><td class="text-end fw-bold">$@factura.Iva.ToString("F2")</td></tr>
+                    <tr class="total"><td>Total</td><td class="text-end">$@factura.TotalFinal.ToString("F2")</td></tr>
+                </table>
+                <p class="text-center text-success mt-2 mb-0" style="font-size:0.85rem;">✅ @factura.Mensaje</p>
+            </div>
+
+            <button class="btn-primary-custom mt-3" @onclick="CerrarFactura">Aceptar</button>
+        </div>
+    </div>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    public int CodigoPartido { get; set; }
+
+    List<LocalidadDTO> localidades = [];
+    LocalidadDTO? localidadSel;
+    FacturaDTO? factura;
+    string titulo = "", mensaje = "";
+    string cantidad = "1";
+    bool cargando = true, comprando;
+
+    int? ObtenerCantidad() => int.TryParse(cantidad, out var c) && c >= 1 ? c : null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var partidos = await ServicioFederacion.ObtenerPartidosDisponibles();
+            var partido = partidos.FirstOrDefault(p => p.Codigo == CodigoPartido);
+            titulo = partido is not null ? $"{partido.EquipoLocal} vs {partido.EquipoVisita}" : $"Partido #{CodigoPartido}";
+            localidades = await ServicioFederacion.ObtenerLocalidadesDisponibles(CodigoPartido);
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error: {ex.Message}";
+        }
+        finally
+        {
+            cargando = false;
+        }
+    }
+
+    void SeleccionarLocalidad(LocalidadDTO loc)
+    {
+        localidadSel = loc;
+        cantidad = "1";
+        mensaje = "";
+        factura = null;
+    }
+
+    async Task Comprar()
+    {
+        if (localidadSel is null) return;
+        var cant = ObtenerCantidad();
+
+        if (cant is null)
+        {
+            mensaje = "Ingresa una cantidad válida (número entero positivo).";
+            return;
+        }
+
+        if (cant > localidadSel.Disponibilidad)
+        {
+            mensaje = $"Solo hay {localidadSel.Disponibilidad} boleto(s) disponible(s).";
+            return;
+        }
+
+        if (!AppState.EstaLogeado)
+        {
+            mensaje = "Debes iniciar sesión para comprar.";
+            return;
+        }
+
+        comprando = true;
+        mensaje = "";
+
+        try
+        {
+            factura = await ServicioTicketPremium.ComprarBoletos(
+                AppState.UsuarioActual!.IdUsuario,
+                CodigoPartido,
+                localidadSel.CodigoLocalidad,
+                cant.Value,
+                localidadSel.Precio
+            );
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error: {ex.Message}";
+        }
+        finally
+        {
+            comprando = false;
+        }
+    }
+
+    async Task CerrarFactura()
+    {
+        factura = null;
+        localidadSel = null;
+        Nav.NavigateTo("/");
+    }
+}

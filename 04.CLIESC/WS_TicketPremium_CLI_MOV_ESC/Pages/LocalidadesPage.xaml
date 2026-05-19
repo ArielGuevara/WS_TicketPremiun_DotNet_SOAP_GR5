@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WS_TicketPremium_CLI_MOV_ESC.Pages.LocalidadesPage"
+             Title="Localidades"
+             BackgroundColor="{StaticResource MenuBackground}">
+
+    <Grid>
+        <!-- CONTENIDO PRINCIPAL -->
+        <Grid RowDefinitions="Auto,*,Auto" Padding="24" RowSpacing="12">
+
+            <Label x:Name="LblTitulo"
+                   Grid.Row="0"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryDark}"
+                   HorizontalOptions="Center"
+                   Margin="0,12,0,8" />
+
+            <Grid Grid.Row="1">
+                <CollectionView x:Name="ListaLocalidades" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="{StaticResource CardBackground}"
+                                    StrokeShape="RoundRectangle 14"
+                                    Stroke="{StaticResource CardBorder}"
+                                    StrokeThickness="1"
+                                    Padding="18"
+                                    Margin="0,6">
+                                <Border.Shadow>
+                                    <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                                </Border.Shadow>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnLocalidadTapped" />
+                                    <PointerGestureRecognizer PointerEntered="OnItemPointerEntered" PointerExited="OnItemPointerExited" />
+                                </Border.GestureRecognizers>
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" RowSpacing="6">
+                                    <Label Text="{Binding CodigoLocalidad}"
+                                           Grid.Row="0" Grid.Column="0"
+                                           FontSize="17" FontAttributes="Bold"
+                                           TextColor="{StaticResource TextPrimary}" />
+                                    <Label Text="{Binding Precio, StringFormat='$ {0:F2}'}"
+                                           Grid.Row="0" Grid.Column="1"
+                                           FontSize="18" FontAttributes="Bold"
+                                           TextColor="{StaticResource TertiaryDark}" />
+                                    <Label Grid.Row="1" Grid.ColumnSpan="2"
+                                           FontSize="14" TextColor="{StaticResource TextSecondary}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Disponibles: " />
+                                                <Span Text="{Binding Disponibilidad}" FontAttributes="Bold" TextColor="{StaticResource Primary}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout />
+                </CollectionView.EmptyView>
+                </CollectionView>
+
+                <ActivityIndicator x:Name="LoadingIndicator"
+                                   IsVisible="False" IsRunning="False"
+                                   Color="{StaticResource Primary}"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+                <VerticalStackLayout x:Name="StackVacio" IsVisible="False"
+                                     HorizontalOptions="Center" VerticalOptions="Center"
+                                     Padding="24" Spacing="18">
+                    <Border StrokeShape="RoundRectangle 80"
+                            HeightRequest="160" WidthRequest="160"
+                            BackgroundColor="#FFF3E0"
+                            HorizontalOptions="Center">
+                        <Image Source="sulli_triste.jpeg"
+                               HeightRequest="156" WidthRequest="156"
+                               Aspect="AspectFill" />
+                    </Border>
+                    <Label Text="No hay boletos disponibles"
+                           FontSize="19" FontAttributes="Bold"
+                           TextColor="{StaticResource TextPrimary}"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Todas las localidades de este partido están agotadas. Vuelve a consultar más tarde."
+                           FontSize="14"
+                           TextColor="{StaticResource TextSecondary}"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Panel de Compra -->
+            <Border x:Name="BorderCompra"
+                    Grid.Row="2"
+                    BackgroundColor="{StaticResource CardBackground}"
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="{StaticResource CardBorder}"
+                    StrokeThickness="1"
+                    Padding="24"
+                    Margin="0,8,0,8"
+                    IsVisible="False">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.08" Radius="12" Offset="0,-2" />
+                </Border.Shadow>
+                <Border.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="OnCompraPointerEntered" PointerExited="OnCompraPointerExited" />
+                </Border.GestureRecognizers>
+                <VerticalStackLayout Spacing="16">
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="14">
+                        <Border StrokeShape="RoundRectangle 100"
+                                HeightRequest="200" WidthRequest="200"
+                                BackgroundColor="{StaticResource Gray100}"
+                                HorizontalOptions="Center">
+                            <Image Source="sulli_solicitud_compra.jpg"
+                                   HeightRequest="196" WidthRequest="196"
+                                   Aspect="AspectFill" />
+                        </Border>
+                        <Label Text="COMPRAR BOLETOS" FontSize="18" FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryDark}" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                    <Label x:Name="LblLocalidadSel" FontSize="14" TextColor="{StaticResource TextSecondary}"
+                           HorizontalTextAlignment="Center" />
+
+                    <Label Text="Cantidad de boletos" FontSize="14" TextColor="{StaticResource TextSecondary}" />
+                    <Border BackgroundColor="{StaticResource MenuBackground}"
+                            StrokeShape="RoundRectangle 12"
+                            Stroke="{StaticResource CardBorder}"
+                            StrokeThickness="1"
+                            Padding="14,4">
+                        <Entry x:Name="TxtCantidad"
+                               Text="1"
+                               Keyboard="Numeric"
+                               TextChanged="OnCantidadTextoChanged"
+                               TextColor="Black"
+                               PlaceholderColor="Gray"
+                               BackgroundColor="Transparent"
+                               FontSize="20"
+                               FontAttributes="Bold" />
+                    </Border>
+
+                    <Label x:Name="LblTotal" FontSize="20" FontAttributes="Bold"
+                           TextColor="{StaticResource SportsGreen}"
+                           HorizontalTextAlignment="Center" />
+                    <Button Text="CONFIRMAR COMPRA"
+                            Clicked="OnComprar"
+                            BackgroundColor="{StaticResource SportsGreen}"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CornerRadius="14"
+                            HeightRequest="52" />
+                    <Label x:Name="LblMensaje" Text="" FontSize="14"
+                           HorizontalTextAlignment="Center" IsVisible="False" />
+                </VerticalStackLayout>
+            </Border>
+
+        </Grid>
+
+        <!-- OVERLAY FACTURA (POPUP) -->
+        <Grid x:Name="OverlayFactura" IsVisible="False" BackgroundColor="#80000000"
+              InputTransparent="False">
+            <Border BackgroundColor="{StaticResource CardBackground}"
+                    StrokeShape="RoundRectangle 24"
+                    Stroke="{StaticResource CardBorder}"
+                    StrokeThickness="1"
+                    Padding="32"
+                    Margin="28"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.25" Radius="24" Offset="0,10" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="20" MinimumWidthRequest="320">
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="14">
+                        <Border StrokeShape="RoundRectangle 110"
+                                HeightRequest="220" WidthRequest="220"
+                                BackgroundColor="#E8F5E9"
+                                HorizontalOptions="Center">
+                            <Image Source="sulli_compra_exitosa.jpg"
+                                   HeightRequest="216" WidthRequest="216"
+                                   Aspect="AspectFill" />
+                        </Border>
+                        <Label Text="COMPRA EXITOSA"
+                               FontSize="22" FontAttributes="Bold"
+                               TextColor="{StaticResource SportsGreen}"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <Border BackgroundColor="{StaticResource MenuBackground}"
+                            StrokeShape="RoundRectangle 14"
+                            Padding="24">
+                        <VerticalStackLayout Spacing="14">
+                            <Label x:Name="FacturaNumero" FontSize="17" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}" HorizontalTextAlignment="Center" />
+                            <BoxView Color="{StaticResource CardBorder}" HeightRequest="1" Margin="0,4" />
+
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                                <Label Text="Subtotal" FontSize="15" TextColor="{StaticResource TextPrimary}" />
+                                <Label x:Name="FacturaSubtotal" Grid.Column="1"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}" />
+                            </Grid>
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                                <Label Text="IVA (15%)" FontSize="15" TextColor="{StaticResource TextPrimary}" />
+                                <Label x:Name="FacturaIva" Grid.Column="1"
+                                       FontSize="15" FontAttributes="Bold"
+                                       TextColor="{StaticResource TextPrimary}" />
+                            </Grid>
+
+                            <BoxView Color="{StaticResource CardBorder}" HeightRequest="1" Margin="0,4" />
+
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                                <Label Text="Total" FontSize="20" FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryDark}" />
+                                <Label x:Name="FacturaTotal" Grid.Column="1"
+                                       FontSize="20" FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryDark}" />
+                            </Grid>
+
+                            <Label x:Name="FacturaMensaje" FontSize="13"
+                                   TextColor="{StaticResource SportsGreen}"
+                                   HorizontalTextAlignment="Center" Margin="0,6,0,0" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Button Text="Aceptar"
+                            Clicked="OnCerrarFactura"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            CornerRadius="14"
+                            HeightRequest="52" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+
+</ContentPage>

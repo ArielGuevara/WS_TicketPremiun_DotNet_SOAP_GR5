@@ -1,0 +1,89 @@
+@page "/registro"
+@inject ServicioTicketPremium ServicioTicketPremium
+@inject NavigationManager Nav
+
+<div class="anim-fade-up">
+
+<div class="text-center mb-4">
+    <div class="icon-box mx-auto mb-3" style="background:#E3F2FD;width:56px;height:56px;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;">
+        📝
+    </div>
+    <h4 style="font-weight:700;">Registrar Usuario</h4>
+    <p class="text-secondary" style="font-size:0.85rem;">Crea una cuenta para comprar boletos</p>
+</div>
+
+<div class="form-card anim-fade-up" style="animation-delay:0.1s;">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" @bind="nombres" placeholder="Nombres" />
+        <label>Nombres completos</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" @bind="correo" placeholder="nombre@ejemplo.com" />
+        <label>Correo electrónico</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" @bind="password" placeholder="Contraseña" />
+        <label>Contraseña</label>
+    </div>
+
+    <button class="btn-primary-custom mt-3" @onclick="Registrar" disabled="@cargando">
+        @if (cargando)
+        {
+            <span class="spinner-border spinner-border-sm me-2"></span>
+        }
+        REGISTRARSE
+    </button>
+
+    @if (!string.IsNullOrEmpty(mensaje))
+    {
+        <div class="alert alert-@(esError ? "danger" : "success") mt-3 mb-0 py-2 anim-fade-in" style="font-size:0.85rem;">
+            @mensaje
+        </div>
+    }
+</div>
+</div>
+
+@code {
+    string nombres = "", correo = "", password = "", mensaje = "";
+    bool cargando, esError;
+
+    async Task Registrar()
+    {
+        if (string.IsNullOrWhiteSpace(nombres) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(password))
+        {
+            mensaje = "Todos los campos son obligatorios.";
+            esError = true;
+            return;
+        }
+
+        cargando = true;
+        esError = false;
+        mensaje = "";
+
+        try
+        {
+            var ok = await ServicioTicketPremium.RegistrarUsuario(nombres, correo, password);
+            if (ok)
+            {
+                mensaje = "Usuario registrado correctamente.";
+                esError = false;
+                await Task.Delay(1000);
+                Nav.NavigateTo("/login");
+            }
+            else
+            {
+                mensaje = "El correo ya está registrado.";
+                esError = true;
+            }
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error: {ex.Message}";
+            esError = true;
+        }
+        finally
+        {
+            cargando = false;
+        }
+    }
+}

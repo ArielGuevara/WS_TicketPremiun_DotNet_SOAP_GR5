@@ -1,0 +1,8 @@
+﻿<maui:MauiWinUIApplication
+    x:Class="WS_TicketPremium_CLI_MOV_ESC.WinUI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:maui="using:Microsoft.Maui"
+    xmlns:local="using:WS_TicketPremium_CLI_MOV_ESC.WinUI">
+
+</maui:MauiWinUIApplication>

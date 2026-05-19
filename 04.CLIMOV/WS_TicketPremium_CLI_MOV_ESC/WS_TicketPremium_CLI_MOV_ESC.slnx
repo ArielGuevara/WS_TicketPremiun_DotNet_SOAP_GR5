@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="../../04.CLICON/Compartido/Compartido.csproj" />
+  <Project Path="WS_TicketPremium_CLI_MOV_ESC.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+</Solution>

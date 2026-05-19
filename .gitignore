@@ -70,3 +70,8 @@ Desktop.ini
 
 # Mac/Linux junk files (Just in case you or someone else opens it on another OS)
 .DS_Store
+packages/
+**/Properties/PublishProfiles/
+**/build/
+**/nbproject/private/
+[Rr]elease/

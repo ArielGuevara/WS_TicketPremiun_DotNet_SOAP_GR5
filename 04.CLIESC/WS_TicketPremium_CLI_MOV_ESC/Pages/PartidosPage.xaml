@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WS_TicketPremium_CLI_MOV_ESC.Pages.PartidosPage"
+             Title="Partidos Disponibles"
+             BackgroundColor="{StaticResource MenuBackground}">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Spacing="4" Margin="0,20,0,10">
+            <Label Text="⚽ PARTIDOS DISPONIBLES"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryDark}"
+                   HorizontalOptions="Center" />
+            <Label Text="Toca un partido para ver sus localidades"
+                   FontSize="12"
+                   TextColor="{StaticResource TextSecondary}"
+                   HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1">
+
+            <CollectionView x:Name="ListaPartidos"
+                            Margin="20,0"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="{StaticResource CardBackground}"
+                                StrokeShape="RoundRectangle 14"
+                                Stroke="{StaticResource CardBorder}"
+                                StrokeThickness="1"
+                                Padding="16"
+                                Margin="0,6">
+                            <Border.Shadow>
+                                <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                            </Border.Shadow>
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemTapped" />
+                                <PointerGestureRecognizer PointerEntered="OnItemPointerEntered" PointerExited="OnItemPointerExited" />
+                            </Border.GestureRecognizers>
+                            <Grid ColumnDefinitions="56,*,36" ColumnSpacing="16">
+                                <Border BackgroundColor="#FFF3E0"
+                                        StrokeShape="RoundRectangle 10"
+                                        HeightRequest="40" WidthRequest="40"
+                                        VerticalOptions="Center">
+                                    <Label Text="⚽" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                    <Label FontSize="15" FontAttributes="Bold" TextColor="{StaticResource TextPrimary}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding EquipoLocal}" />
+                                                <Span Text=" vs " TextColor="{StaticResource TextSecondary}" />
+                                                <Span Text="{Binding EquipoVisita}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <HorizontalStackLayout Spacing="12">
+                                        <Label Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
+                                               FontSize="12" TextColor="{StaticResource TextSecondary}" />
+                                        <Label Text="•" FontSize="12" TextColor="{StaticResource Gray300}" />
+                                        <Label Text="{Binding Lugar}"
+                                               FontSize="12" TextColor="{StaticResource TextSecondary}" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="›" FontSize="22" TextColor="{StaticResource Gray400}"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
+                        <Label Text="No hay partidos disponibles."
+                               FontSize="15"
+                               TextColor="{StaticResource Gray400}"
+                               HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+
+            <ActivityIndicator x:Name="LoadingIndicator"
+                               IsVisible="False" IsRunning="False"
+                               Color="{StaticResource Primary}"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
