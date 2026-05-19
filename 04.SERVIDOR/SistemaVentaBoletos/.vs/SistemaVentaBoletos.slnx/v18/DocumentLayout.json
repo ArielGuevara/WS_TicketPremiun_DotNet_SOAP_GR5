@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|c:\\users\\dario\\documents\\uni\\arquitectura\\ws_ticketpremiun_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\ticketpremium.wcf\\ticketpremiumservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|solutionrelative:ticketpremium.wcf\\ticketpremiumservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\ticketpremium.wcf\\iticketpremiumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|solutionrelative:ticketpremium.wcf\\iticketpremiumservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\ticketpremium.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|solutionrelative:ticketpremium.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\federacion.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|c:\\users\\dario\\documents\\uni\\arquitectura\\ws_ticketpremiun_dotnet_soap_gr5\\04.servidor\\sistemaventaboletos\\ticketpremium.wcf\\ticketpremiumservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|solutionrelative:ticketpremium.wcf\\ticketpremiumservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\ticketpremium.wcf\\modelos\\reporteresumenventasdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\federacion.wcf\\federacionservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\federacionservice.svc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\ticketpremium.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|solutionrelative:ticketpremium.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{10D7F407-9B81-4156-AAEE-19824D526BCB}|TicketPremium.WCF\\TicketPremium.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\ticketpremium.wcf\\ticketpremiumservice.svc||{FB9167C9-D3B8-4EDA-8083-9AF6B6F6DA62}",
@@ -45,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D83B7EFC-E810-47E5-8DA7-4A8DE4E9404D}|TicketPremium.Datos\\TicketPremium.Datos.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\ticketpremium.datos\\ticketpremiummodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
       "RelativeMoniker": "D:0:0:{D83B7EFC-E810-47E5-8DA7-4A8DE4E9404D}|TicketPremium.Datos\\TicketPremium.Datos.csproj|solutionrelative:ticketpremium.datos\\ticketpremiummodel.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\federacion.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{332D5EFB-533F-4B8C-B3A5-8BBFF2AF4C0C}|Federacion.WCF\\Federacion.WCF.csproj|solutionrelative:federacion.wcf\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D87E89CE-8182-4430-B090-184A4B6F77BD}|Federacion.Datos\\Federacion.Datos.csproj|C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\federacion.datos\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -90,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ReporteResumenVentasDTO.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\Modelos\\ReporteResumenVentasDTO.cs",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\Modelos\\ReporteResumenVentasDTO.cs",
@@ -110,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "FacturaDTO.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\Modelos\\FacturaDTO.cs",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\Modelos\\FacturaDTO.cs",
@@ -122,7 +122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "TicketPremiumService.svc",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\TicketPremiumService.svc",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\TicketPremiumService.svc",
@@ -130,12 +130,11 @@
               "RelativeToolTip": "TicketPremium.WCF\\TicketPremiumService.svc",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003504|",
-              "WhenOpened": "2026-05-15T05:16:57.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-15T05:16:57.098Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "TicketPremiumService.svc.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\TicketPremiumService.svc.cs",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\TicketPremiumService.svc.cs",
@@ -148,20 +147,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ITicketPremiumService.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\ITicketPremiumService.cs",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\ITicketPremiumService.cs",
               "ToolTip": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\ITicketPremiumService.cs",
               "RelativeToolTip": "TicketPremium.WCF\\ITicketPremiumService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBUAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBUAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-15T05:08:28.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "UsuarioDTO.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\Modelos\\UsuarioDTO.cs",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\Modelos\\UsuarioDTO.cs",
@@ -173,20 +172,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\Web.config",
               "RelativeDocumentMoniker": "TicketPremium.WCF\\Web.config",
               "ToolTip": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.WCF\\Web.config",
               "RelativeToolTip": "TicketPremium.WCF\\Web.config",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAIwAcAAAA0AQAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA0AQAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2026-05-15T05:01:03.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.Datos\\App.config",
               "RelativeDocumentMoniker": "TicketPremium.Datos\\App.config",
@@ -198,7 +197,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Web.config",
+              "RelativeDocumentMoniker": "Federacion.WCF\\Web.config",
+              "ToolTip": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Web.config",
+              "RelativeToolTip": "Federacion.WCF\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-05-09T02:59:32.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "TicketPremiumModel.edmx [Diagram1]",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.Datos\\TicketPremiumModel.edmx",
               "RelativeDocumentMoniker": "TicketPremium.Datos\\TicketPremiumModel.edmx",
@@ -209,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Class1.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\TicketPremium.Datos\\Class1.cs",
               "RelativeDocumentMoniker": "TicketPremium.Datos\\Class1.cs",
@@ -257,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "FederacionService.svc.cs",
               "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\FederacionService.svc.cs",
               "RelativeDocumentMoniker": "Federacion.WCF\\FederacionService.svc.cs",
@@ -302,19 +314,6 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-09T03:33:13.79Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Web.config",
-              "RelativeDocumentMoniker": "Federacion.WCF\\Web.config",
-              "ToolTip": "C:\\Users\\dario\\Documents\\Uni\\Arquitectura\\WS_TicketPremiun_DotNet_SOAP_GR5\\04.SERVIDOR\\SistemaVentaBoletos\\Federacion.WCF\\Web.config",
-              "RelativeToolTip": "Federacion.WCF\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-05-09T02:59:32.997Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
