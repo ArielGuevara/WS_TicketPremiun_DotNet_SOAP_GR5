@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WS_TicketPremium_CLI_MOV_ESC.Pages.RegistroPage"
+             Title="Registrar Usuario"
+             BackgroundColor="{StaticResource MenuBackground}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="20" MaximumWidthRequest="420">
+
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="8" Margin="0,16,0,0">
+                <Border BackgroundColor="{StaticResource Gray100}"
+                        StrokeShape="RoundRectangle 24"
+                        HeightRequest="56" WidthRequest="56"
+                        HorizontalOptions="Center">
+                    <Label Text="📝" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+                <Label Text="Registrar Usuario"
+                       FontSize="24" FontAttributes="Bold"
+                       TextColor="{StaticResource TextPrimary}"
+                       HorizontalOptions="Center" />
+                <Label Text="Crea una cuenta para comprar boletos"
+                       FontSize="13" TextColor="{StaticResource TextSecondary}"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="{StaticResource CardBackground}"
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="{StaticResource CardBorder}"
+                    StrokeThickness="1"
+                    Padding="24">
+                <Border.Shadow>
+                    <Shadow Brush="Black" Opacity="0.06" Radius="12" Offset="0,4" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="18">
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Nombres completos" FontSize="13" TextColor="{StaticResource TextSecondary}" />
+                        <Border BackgroundColor="{StaticResource MenuBackground}"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{StaticResource CardBorder}"
+                                StrokeThickness="1"
+                                Padding="12,0">
+                            <Entry x:Name="TxtNombres"
+                                   Placeholder="Ingresa tus nombres"
+                                   TextColor="Black"
+                                   PlaceholderColor="{StaticResource Gray400}"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Correo electrónico" FontSize="13" TextColor="{StaticResource TextSecondary}" />
+                        <Border BackgroundColor="{StaticResource MenuBackground}"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{StaticResource CardBorder}"
+                                StrokeThickness="1"
+                                Padding="12,0">
+                            <Entry x:Name="TxtCorreo"
+                                   Placeholder="ejemplo@correo.com"
+                                   Keyboard="Email"
+                                   TextColor="Black"
+                                   PlaceholderColor="{StaticResource Gray400}"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Contraseña" FontSize="13" TextColor="{StaticResource TextSecondary}" />
+                        <Border BackgroundColor="{StaticResource MenuBackground}"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{StaticResource CardBorder}"
+                                StrokeThickness="1"
+                                Padding="12,0">
+                            <Entry x:Name="TxtPassword"
+                                   Placeholder="Crea una contraseña"
+                                   IsPassword="True"
+                                   TextColor="Black"
+                                   PlaceholderColor="{StaticResource Gray400}"
+                                   BackgroundColor="Transparent" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Button x:Name="BtnRegistrar"
+                            Text="REGISTRARSE"
+                            Clicked="OnRegistrar"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            CornerRadius="12"
+                            HeightRequest="48"
+                            Margin="0,6,0,0" />
+
+                    <ActivityIndicator x:Name="LoadingIndicator"
+                                       IsVisible="False" IsRunning="False"
+                                       Color="{StaticResource Primary}"
+                                       HorizontalOptions="Center" />
+
+                    <Label x:Name="LblMensaje" Text="" FontSize="13"
+                           HorizontalTextAlignment="Center" IsVisible="False" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,393 @@
+:root {
+    --primary: #1565C0;
+    --primary-dark: #0D47A1;
+    --primary-light: #42A5F5;
+    --sports-green: #2E7D32;
+    --sports-gold: #FFD700;
+    --header-bg: #0D47A1;
+    --bg-light: #F0F4F8;
+    --card-bg: #FFFFFF;
+    --card-border: #E0E6ED;
+    --text-primary: #1F2937;
+    --text-secondary: #6B7280;
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+}
+
+/* ── Animaciones personalizadas ── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.05); }
+}
+
+.anim-fade-up   { animation: fadeInUp 0.4s ease both; }
+.anim-fade-in   { animation: fadeIn 0.3s ease both; }
+.anim-slide-down{ animation: slideDown 0.35s ease both; }
+.anim-pulse     { animation: pulse 2s ease infinite; }
+
+/* Retardo escalonado para listas */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.10s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.20s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* nth-child stagger automático para listas */
+.stagger-list > *:nth-child(1)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.04s; }
+.stagger-list > *:nth-child(2)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.08s; }
+.stagger-list > *:nth-child(3)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.12s; }
+.stagger-list > *:nth-child(4)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.16s; }
+.stagger-list > *:nth-child(5)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.20s; }
+.stagger-list > *:nth-child(6)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.24s; }
+.stagger-list > *:nth-child(7)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.28s; }
+.stagger-list > *:nth-child(8)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.32s; }
+.stagger-list > *:nth-child(9)  { animation: fadeInUp 0.4s ease both; animation-delay: 0.36s; }
+.stagger-list > *:nth-child(10) { animation: fadeInUp 0.4s ease both; animation-delay: 0.40s; }
+
+/* ── Header ── */
+.header-bar {
+    background: var(--header-bg);
+    padding: 1.5rem 2rem 3.5rem;
+    text-align: center;
+}
+
+.header-bar h1 {
+    color: white;
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.header-bar p {
+    color: #BBDEFB;
+    font-size: 0.85rem;
+    margin: 4px 0 0;
+}
+
+/* ── Logo ── */
+.logo-circle {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 4px solid white;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-circle img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+/* ── Sesión ── */
+.session-bar {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--card-border);
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.session-bar.logged { color: var(--sports-green); font-weight: 600; }
+
+/* ── Menú ── */
+.menu-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1.5rem 1.75rem;
+}
+
+.card-menu {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.card-menu:hover {
+    background: #F0F4F8;
+    box-shadow: 0 8px 24px rgba(21,101,192,0.12);
+    transform: translateY(-2px) scale(1.01);
+}
+
+.card-menu:active { transform: scale(0.98); }
+
+.card-menu .icon-box {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.card-menu:hover .icon-box { transform: scale(1.1) rotate(-5deg); }
+
+.card-menu .menu-text h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 2px;
+}
+
+.card-menu .menu-text p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.card-menu .arrow {
+    margin-left: auto;
+    font-size: 1.5rem;
+    color: var(--card-border);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.card-menu:hover .arrow { transform: translateX(4px); color: var(--primary); }
+
+/* ── Formulario ── */
+.form-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(21,101,192,0.15);
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: var(--primary);
+}
+
+/* ── Botones ── */
+.btn-primary-custom {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-custom:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(21,101,192,0.3);
+}
+
+.btn-primary-custom:active:not(:disabled) { transform: scale(0.98); }
+
+.btn-success-custom {
+    background: var(--sports-green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-success-custom:hover:not(:disabled) {
+    background: #1B5E20;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+}
+
+.btn-success-custom:active:not(:disabled) { transform: scale(0.98); }
+
+/* ── Tarjetas de lista ── */
+.match-card, .localidad-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--text-primary);
+}
+
+.match-card:hover, .localidad-card:hover {
+    background: #F0F4F8;
+    box-shadow: 0 8px 24px rgba(21,101,192,0.1);
+    transform: translateY(-2px);
+}
+
+.match-card:active, .localidad-card:active { transform: scale(0.98); }
+
+.match-card .match-icon, .localidad-card .loc-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.match-card:hover .match-icon { transform: scale(1.15) rotate(-5deg); }
+
+.match-card .match-info h4, .localidad-card .loc-info h4 {
+    font-size: 0.95rem; font-weight: 700; margin: 0 0 2px;
+}
+
+.match-card .match-info small, .localidad-card .loc-info small {
+    font-size: 0.8rem; color: var(--text-secondary);
+}
+
+.match-card .arrow {
+    margin-left: auto;
+    font-size: 1.3rem;
+    color: var(--card-border);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.match-card:hover .arrow { transform: translateX(4px); color: var(--primary); }
+
+.localidad-card .loc-price {
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--sports-gold);
+    margin-left: auto; flex-shrink: 0;
+}
+
+/* ── Overlay / Modal ── */
+.overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1050; padding: 1rem;
+}
+
+.overlay-content {
+    background: var(--card-bg);
+    border-radius: 24px;
+    padding: 2rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+}
+
+.overlay-content h2 { font-size: 1.3rem; font-weight: 800; text-align: center; }
+
+/* ── Recibo ── */
+.receipt {
+    background: var(--bg-light);
+    border-radius: 14px;
+    padding: 1.25rem;
+}
+
+.receipt table { width: 100%; font-size: 0.9rem; }
+.receipt td { padding: 4px 0; }
+
+.receipt .total td {
+    font-size: 1.1rem; font-weight: 800;
+    color: var(--primary-dark); padding-top: 8px;
+}
+
+/* ── Reporte ── */
+.report-table td:last-child,
+.report-table th:last-child { text-align: right; }
+
+.report-table th {
+    font-size: 0.75rem; color: var(--text-secondary);
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* ── Estado vacío ── */
+.empty-state { text-align: center; padding: 3rem 1rem; }
+.empty-state h3 { margin-top: 1rem; font-weight: 700; }
+
+/* ── Spinner personalizado ── */
+.spinner-custom {
+    width: 48px; height: 48px;
+    border: 4px solid var(--card-border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Badge de precio ── */
+.price-badge {
+    background: linear-gradient(135deg, #FFD700, #FFA000);
+    color: #1F2937;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    padding: 4px 14px;
+}
+
+/* ── Transiciones suaves globales ── */
+.overlay, .overlay-content, .card-menu, .match-card, .localidad-card,
+.btn-primary-custom, .btn-success-custom, .form-control {
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Scrollbar bonita ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--card-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-light); }

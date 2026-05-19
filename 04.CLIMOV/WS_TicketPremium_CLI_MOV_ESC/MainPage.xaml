@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WS_TicketPremium_CLI_MOV_ESC.MainPage"
+             BackgroundColor="{StaticResource MenuBackground}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER AZUL -->
+            <Grid BackgroundColor="{StaticResource HeaderBlue}"
+                  Padding="24,48,24,24">
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="4">
+                    <Label Text="⚽ TICKET PREMIUM MONSTER"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Boletos para partidos de fútbol"
+                           FontSize="13"
+                           TextColor="{StaticResource Gray100}"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- IMAGEN + ESTADO -->
+            <Grid BackgroundColor="{StaticResource HeaderBlue}" Padding="0,0,0,28">
+                <Border StrokeShape="RoundRectangle 100"
+                        Stroke="White"
+                        StrokeThickness="4"
+                        HeightRequest="180"
+                        WidthRequest="180"
+                        BackgroundColor="White"
+                        HorizontalOptions="Center">
+                    <Image Source="sullivan_computer.jpg"
+                           HeightRequest="170"
+                           WidthRequest="170"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </Border>
+            </Grid>
+
+            <!-- BARRA DE SESIÓN -->
+            <Border x:Name="BorderSesion"
+                    BackgroundColor="{StaticResource CardBackground}"
+                    Stroke="{StaticResource CardBorder}"
+                    StrokeThickness="0,0,0,1"
+                    Padding="15,12">
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="8">
+                    <Label x:Name="LblIconoSesion" Text="👤" FontSize="16" VerticalOptions="Center" />
+                    <Label x:Name="LblEstadoSesion"
+                           Text="No has iniciado sesión"
+                           FontSize="13"
+                           TextColor="{StaticResource TextSecondary}"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </Border>
+
+            <!-- MENÚ PRINCIPAL -->
+            <VerticalStackLayout Padding="28,24" Spacing="18" MaximumWidthRequest="460">
+
+                <!-- Iniciar Sesión -->
+                <Border x:Name="BorderIniciarSesion"
+                        BackgroundColor="{StaticResource CardBackground}"
+                        StrokeShape="RoundRectangle 14"
+                        Stroke="{StaticResource CardBorder}"
+                        StrokeThickness="1"
+                        Padding="20,18">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnIniciarSesion" />
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="60,*,36" ColumnSpacing="16">
+                        <Border BackgroundColor="{StaticResource Gray100}"
+                                StrokeShape="RoundRectangle 12"
+                                HeightRequest="52" WidthRequest="52"
+                                VerticalOptions="Center">
+                            <Label Text="🔑" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                            <Label Text="Iniciar Sesión" FontSize="17" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}" />
+                            <Label Text="Accede con tu correo y contraseña" FontSize="13"
+                                   TextColor="{StaticResource TextSecondary}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="28" TextColor="{StaticResource Gray400}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+                <!-- Registrar Usuario -->
+                <Border x:Name="BorderRegistrar"
+                        BackgroundColor="{StaticResource CardBackground}"
+                        StrokeShape="RoundRectangle 14"
+                        Stroke="{StaticResource CardBorder}"
+                        StrokeThickness="1"
+                        Padding="20,18">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnRegistrar" />
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="60,*,36" ColumnSpacing="16">
+                        <Border BackgroundColor="{StaticResource Gray100}"
+                                StrokeShape="RoundRectangle 12"
+                                HeightRequest="52" WidthRequest="52"
+                                VerticalOptions="Center">
+                            <Label Text="📝" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                            <Label Text="Registrar Usuario" FontSize="17" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}" />
+                            <Label Text="Crea una cuenta nueva en segundos" FontSize="13"
+                                   TextColor="{StaticResource TextSecondary}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{StaticResource Gray400}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+                <!-- Ver Partidos -->
+                <Border x:Name="BorderVerPartidos"
+                        BackgroundColor="{StaticResource CardBackground}"
+                        StrokeShape="RoundRectangle 14"
+                        Stroke="{StaticResource CardBorder}"
+                        StrokeThickness="1"
+                        Padding="20,18">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVerPartidos" />
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="60,*,36" ColumnSpacing="16">
+                        <Border BackgroundColor="#FFF3E0"
+                                StrokeShape="RoundRectangle 12"
+                                HeightRequest="52" WidthRequest="52"
+                                VerticalOptions="Center">
+                            <Label Text="⚽" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                            <Label Text="Ver Partidos" FontSize="17" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}" />
+                            <Label Text="Explora partidos y localidades" FontSize="13"
+                                   TextColor="{StaticResource TextSecondary}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{StaticResource Gray400}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+                <!-- Reporte de Ventas -->
+                <Border BackgroundColor="{StaticResource CardBackground}"
+                        StrokeShape="RoundRectangle 14"
+                        Stroke="{StaticResource CardBorder}"
+                        StrokeThickness="1"
+                        Padding="20,18">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnVerReporte" />
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="60,*,36" ColumnSpacing="16">
+                        <Border BackgroundColor="#E8EAF6"
+                                StrokeShape="RoundRectangle 12"
+                                HeightRequest="52" WidthRequest="52"
+                                VerticalOptions="Center">
+                            <Label Text="📊" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                            <Label Text="Reporte de Ventas" FontSize="17" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}" />
+                            <Label Text="Resumen de boletos vendidos por partido" FontSize="13"
+                                   TextColor="{StaticResource TextSecondary}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="28" TextColor="{StaticResource Gray400}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+                <!-- Cerrar Sesión -->
+                <Border x:Name="BorderCerrarSesion"
+                        BackgroundColor="{StaticResource CardBackground}"
+                        StrokeShape="RoundRectangle 14"
+                        Stroke="{StaticResource CardBorder}"
+                        StrokeThickness="1"
+                        Padding="20,18"
+                        IsVisible="False">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                    </Border.Shadow>
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCerrarSesion" />
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered" PointerExited="OnPointerExited" />
+                    </Border.GestureRecognizers>
+                    <Grid ColumnDefinitions="60,*,36" ColumnSpacing="16">
+                        <Border BackgroundColor="#E8F5E9"
+                                StrokeShape="RoundRectangle 12"
+                                HeightRequest="52" WidthRequest="52"
+                                VerticalOptions="Center">
+                            <Label Text="🚪" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                            <Label Text="Cerrar Sesión" FontSize="17" FontAttributes="Bold"
+                                   TextColor="{StaticResource SportsGreen}" />
+                            <Label Text="Finaliza tu sesión actual" FontSize="13"
+                                   TextColor="{StaticResource TextSecondary}" />
+                        </VerticalStackLayout>
+                        <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{StaticResource Gray400}"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

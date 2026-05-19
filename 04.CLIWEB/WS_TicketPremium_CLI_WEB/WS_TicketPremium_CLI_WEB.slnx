@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../../04.CLICON/Compartido/Compartido.csproj" />
+  <Project Path="WS_TicketPremium_CLI_WEB.csproj" />
+</Solution>

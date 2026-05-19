@@ -10,3 +10,15 @@ C:\Users\ariel\PRY\WS_TicketPremium_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBole
 C:\Users\ariel\PRY\WS_TicketPremium_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federaci.DE0F9B1F.Up2Date
 C:\Users\ariel\PRY\WS_TicketPremium_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federacion.Datos.dll
 C:\Users\ariel\PRY\WS_TicketPremium_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federacion.Datos.pdb
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\Federacion.Datos.dll.config
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\Federacion.Datos.dll
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\Federacion.Datos.pdb
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\EntityFramework.dll
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\EntityFramework.xml
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federacion.Datos.csproj.AssemblyReference.cache
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federacion.Datos.csproj.CoreCompileInputs.cache
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federaci.DE0F9B1F.Up2Date
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federacion.Datos.dll
+C:\Users\dario\Documents\Uni\Arquitectura\WS_TicketPremiun_DotNet_SOAP_GR5\04.SERVIDOR\SistemaVentaBoletos\Federacion.Datos\obj\Debug\Federacion.Datos.pdb

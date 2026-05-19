@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WS_TicketPremium_CLI_MOV_ESC.Pages.ReporteVentasPage"
+             Title="Reporte de Ventas"
+             BackgroundColor="{StaticResource MenuBackground}">
+
+    <Grid>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <Grid RowDefinitions="Auto,*" Padding="24" RowSpacing="12">
+
+            <VerticalStackLayout Grid.Row="0" Spacing="10" HorizontalOptions="Center" Margin="0,16,0,0">
+                <Border BackgroundColor="{StaticResource Gray100}"
+                        StrokeShape="RoundRectangle 26"
+                        HeightRequest="60" WidthRequest="60"
+                        HorizontalOptions="Center">
+                    <Label Text="📊" FontSize="30" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+                <Label Text="Reporte de Ventas"
+                       FontSize="22" FontAttributes="Bold"
+                       TextColor="{StaticResource TextPrimary}"
+                       HorizontalOptions="Center" />
+                <Label Text="Selecciona un partido para ver el resumen"
+                       FontSize="13" TextColor="{StaticResource TextSecondary}"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+
+            <Grid Grid.Row="1">
+                <CollectionView x:Name="ListaPartidos" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border BackgroundColor="{StaticResource CardBackground}"
+                                    StrokeShape="RoundRectangle 14"
+                                    Stroke="{StaticResource CardBorder}"
+                                    StrokeThickness="1"
+                                    Padding="16"
+                                    Margin="0,6">
+                                <Border.Shadow>
+                                    <Shadow Brush="Black" Opacity="0.06" Radius="8" Offset="0,2" />
+                                </Border.Shadow>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnPartidoTapped" />
+                                </Border.GestureRecognizers>
+                                <Grid ColumnDefinitions="52,*,36" ColumnSpacing="14">
+                                    <Border BackgroundColor="#E8EAF6"
+                                            StrokeShape="RoundRectangle 10"
+                                            HeightRequest="44" WidthRequest="44"
+                                            VerticalOptions="Center">
+                                        <Label Text="⚽" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Border>
+                                    <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                        <Label FontSize="15" FontAttributes="Bold" TextColor="{StaticResource TextPrimary}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding EquipoLocal}" />
+                                                    <Span Text=" vs " TextColor="{StaticResource TextSecondary}" />
+                                                    <Span Text="{Binding EquipoVisita}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
+                                               FontSize="12" TextColor="{StaticResource TextSecondary}" />
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="2" Text="›" FontSize="24" TextColor="{StaticResource Gray400}"
+                                           VerticalOptions="Center" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <ActivityIndicator x:Name="LoadingIndicator"
+                                   IsVisible="False" IsRunning="False"
+                                   Color="{StaticResource Primary}"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+            </Grid>
+
+        </Grid>
+
+        <!-- OVERLAY REPORTE (POPUP) -->
+        <Grid x:Name="OverlayReporte" IsVisible="False" BackgroundColor="#80000000"
+              InputTransparent="False">
+            <ScrollView VerticalOptions="Center" HorizontalOptions="Center"
+                        MaximumWidthRequest="460">
+                <Border BackgroundColor="{StaticResource CardBackground}"
+                        StrokeShape="RoundRectangle 24"
+                        Stroke="{StaticResource CardBorder}"
+                        StrokeThickness="1"
+                        Padding="28"
+                        Margin="20">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Opacity="0.25" Radius="24" Offset="0,10" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="20">
+
+                        <!-- Header del reporte -->
+                        <VerticalStackLayout HorizontalOptions="Center" Spacing="14">
+                            <Border StrokeShape="RoundRectangle 80"
+                                    HeightRequest="160" WidthRequest="160"
+                                    BackgroundColor="#E8EAF6"
+                                    HorizontalOptions="Center">
+                                <Image Source="sulli_analitico.jpeg"
+                                       HeightRequest="156" WidthRequest="156"
+                                       Aspect="AspectFill" />
+                            </Border>
+                            <Label Text="REPORTE DE VENTAS"
+                                   FontSize="20" FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryDark}"
+                                   HorizontalOptions="Center" />
+                        </VerticalStackLayout>
+
+                        <BoxView Color="{StaticResource Primary}" HeightRequest="3" Margin="0,0" />
+
+                        <!-- Info partido -->
+                        <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                            <Label x:Name="RepPartido" FontSize="18" FontAttributes="Bold"
+                                   TextColor="{StaticResource TextPrimary}"
+                                   HorizontalTextAlignment="Center" />
+                            <HorizontalStackLayout HorizontalOptions="Center" Spacing="6">
+                                <Label Text="📅" FontSize="14" VerticalOptions="Center" />
+                                <Label x:Name="RepFecha" FontSize="14"
+                                       TextColor="{StaticResource TextSecondary}"
+                                       VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+
+                        <!-- Tabla -->
+                        <Border BackgroundColor="{StaticResource MenuBackground}"
+                                StrokeShape="RoundRectangle 14"
+                                Padding="16">
+                            <VerticalStackLayout Spacing="8">
+
+                                <!-- Encabezados -->
+                                <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="16">
+                                    <Label Text="Localidad"
+                                           FontSize="12" FontAttributes="Bold"
+                                           TextColor="{StaticResource TextSecondary}" />
+                                    <Label Grid.Column="1" Text="Vend."
+                                           FontSize="12" FontAttributes="Bold"
+                                           TextColor="{StaticResource TextSecondary}"
+                                           HorizontalTextAlignment="End" />
+                                    <Label Grid.Column="2" Text="Total"
+                                           FontSize="12" FontAttributes="Bold"
+                                           TextColor="{StaticResource TextSecondary}"
+                                           HorizontalTextAlignment="End" />
+                                </Grid>
+
+                                <BoxView Color="{StaticResource CardBorder}" HeightRequest="1" />
+
+                                <!-- Filas dinámicas -->
+                                <VerticalStackLayout x:Name="StackDetalles" Spacing="8" />
+
+                                <BoxView Color="{StaticResource CardBorder}" HeightRequest="1" />
+
+                                <!-- Total general -->
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                                    <Label Text="TOTAL GENERAL" FontSize="16" FontAttributes="Bold"
+                                           TextColor="{StaticResource PrimaryDark}" />
+                                    <Label x:Name="RepTotalGeneral" Grid.Column="1"
+                                           FontSize="18" FontAttributes="Bold"
+                                           TextColor="{StaticResource PrimaryDark}"
+                                           HorizontalTextAlignment="End" />
+                                </Grid>
+
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- Botón cerrar -->
+                        <Button Text="Cerrar"
+                                Clicked="OnCerrarReporte"
+                                BackgroundColor="{StaticResource Primary}"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                CornerRadius="14"
+                                HeightRequest="52" />
+
+                    </VerticalStackLayout>
+                </Border>
+            </ScrollView>
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
